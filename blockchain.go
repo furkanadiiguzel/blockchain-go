@@ -78,8 +78,25 @@ func main() {
 	blockchain := CreateBlockchain(2)
 
 	blockchain.addBlock("Furkan", "Adıgüzel", 5)
-	blockchain.addBlock("Erva", "Adıgüzel", 2)
+	blockchain.addBlock("Nakruf", "Adıgüzel", 2)
 
 	// check if the blockchain is valid; expecting true
 	fmt.Println(blockchain.isValid())
+	fmt.Println("Genesis Block: ", blockchain.genesisBlock)
+	fmt.Println("Blockchain Length: ", len(blockchain.chain))
+	fmt.Println("Blockchain Difficulty: ", blockchain.difficulty)
+	fmt.Println("Blockchain Last Block: ", blockchain.chain[len(blockchain.chain)-1])
+	fmt.Println("Blockchain Last Block Data: ", blockchain.chain[len(blockchain.chain)-1].data)
+	fmt.Println("Blockchain Last Block Data From: ", blockchain.chain[len(blockchain.chain)-1].data["from"])
+	fmt.Println("Blockchain Last Block Data To: ", blockchain.chain[len(blockchain.chain)-1].data["to"])
+	fmt.Println("Blockchain Last Block Data Amount: ", blockchain.chain[len(blockchain.chain)-1].data["amount"])
+	fmt.Println("Blockchain Last Block Hash: ", blockchain.chain[len(blockchain.chain)-1].hash)
+	fmt.Println("Blockchain Last Block Previous Hash: ", blockchain.chain[len(blockchain.chain)-1].previousHash)
+	fmt.Println("Blockchain Last Block Timestamp: ", blockchain.chain[len(blockchain.chain)-1].timestamp)
+	fmt.Println("Blockchain Last Block Pow: ", blockchain.chain[len(blockchain.chain)-1].pow)
+
+	if (blockchain.chain[len(blockchain.chain)-1].previousHash) == "00b470abdb0ed5a9e5d8305e61154b8037bfef774ab40fa9631768577cd9044e" {
+		fmt.Println("True")
+	}
+
 }
